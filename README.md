@@ -4,7 +4,7 @@ This is an exam for Eisenback Consulting (Angular version 10.2.0.)
 
 ## Development server
 
-Run `npm i` or `npm install` or `yarn`
+Run `npm i` or `npm install` or `yarn` to install dependencies.
 
 Run `ng serve` or `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
