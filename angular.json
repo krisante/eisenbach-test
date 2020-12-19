@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "eisenbach-test"
+    }
+  },
+  "defaultProject": "eisenbach-test",
+  "cli": {
+    "analytics": false
+  }
 }

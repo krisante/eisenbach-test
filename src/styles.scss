@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "./app/core/styles/base";
+form {
+    min-width: 400px;
+    max-width: 400px;
+}

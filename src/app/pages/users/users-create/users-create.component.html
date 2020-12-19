@@ -1,0 +1,19 @@
+<form [formGroup]="creationForm" class="border rounded p-5">
+    <ngb-alert [type]="'danger'" [dismissible]="true" *ngIf="creationError" (closed)="creationError = null">
+        {{creationError}}
+    </ngb-alert>
+    <ngb-alert [type]="'success'" [dismissible]="true" *ngIf="creationSuccess" (closed)="creationSuccess = false">
+        User created successfully
+    </ngb-alert>
+    <label for="inputName" class="visually-hidden">Name</label>
+    <input type="text" formControlName="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+            name is required
+        </div>
+    </div>
+    <label for="inputJob" class="visually-hidden">Job</label>
+    <input type="text" formControlName="job" id="inputJob" class="form-control" placeholder="Job">
+    <button class="btn btn-block btn-lg btn-success mt-2" (click)="createUser()" [disabled]="!creationForm.valid">Create User</button>
+    <button class="btn btn-block btn-lg btn-primary" (click)="location.back()">Cancel</button>
+</form>
