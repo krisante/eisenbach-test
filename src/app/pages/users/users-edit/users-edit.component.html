@@ -2,6 +2,9 @@
     <ngb-alert [type]="'success'" [dismissible]="true" *ngIf="editSuccess" (closed)="editSuccess = false">
         User updated successfully
     </ngb-alert>
+    <div class="text-center">
+        <img width="125" height="125" [src]="avatar" class="rounded-circle mb-2">
+    </div>
     <label for="inputName" class="visually-hidden">Name</label>
     <input type="text" formControlName="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">

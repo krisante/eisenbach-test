@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { SingleUserDetails, UserCreationDetails } from 'src/app/core/models/users.model';
 import { UsersService } from 'src/app/core/services/users.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-users-edit',
@@ -16,6 +17,7 @@ import { UsersService } from 'src/app/core/services/users.service';
 export class UsersEditComponent implements OnInit {
   public editForm: FormGroup;
   public editSuccess: boolean;
+  public avatar: string = environment.avatarPlaceholder;
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -35,7 +37,8 @@ export class UsersEditComponent implements OnInit {
         this.editForm.patchValue({
           name: `${result?.data?.first_name} ${result?.data?.last_name}`,
           job: result?.data?.job
-        })
+        });
+        this.avatar = result.data && result.data.avatar ? result.data.avatar : this.avatar;
       })
     ).subscribe();
   }
