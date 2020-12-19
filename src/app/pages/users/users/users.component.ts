@@ -21,8 +21,11 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.getListOfUsers(1);
   }
 
-  public ngOnDestroy() {
-    this.userListSubscription ? this.userListSubscription.unsubscribe : null;
+  public ngOnDestroy(): void {
+    if (this.userListSubscription) {
+      this.userListSubscription.unsubscribe();
+    }
+    this.userList$.complete();
   }
 
   public getListOfUsers(pageNumber: number) {
